@@ -1,0 +1,64 @@
+<!DOCTYPE html> 
+<html>
+<head>
+  <meta charset="utf-8" /> 
+  <meta name="description" content="SrtKit is a simple online web site that modifies all the timings in a subtitle file with srt format. You can use it to adjust timings when your subtitles is early or late ." /> 
+  <meta name="keywords" content="srt,srt file,subrip,online adjust,html5,chrome" /> 
+  <title>SrtKit - online web site for adjust subtitle file timings</title> 
+</head>
+<body>
+
+<div id="header">
+<h1>SrtKit</h1>
+<p>SrtKit is a simple online web site that modifies all the timings in a subtitle file with srt format. You can use it to adjust timings when your subtitles is early or late .</p>
+</div>
+
+<div id="prepare">
+loading...
+</div>
+
+<div id="support" style="display:none">
+<h2>Sorry</h2>
+<p>Sorry , your browser may not support all of the <a>File API</a> functionality (<a href="http://dev.w3.org/2006/webapi/FileAPI/#dfn-filereader">FileReader</a> and <a href="http://dev.w3.org/2009/dap/file-system/pub/FileSystem/">FileSystem</a>) used in this web site.</p>
+<p>Please download <a href="http://www.google.com/chrome">Google-Chrome browser</a>.</p>
+</div><!-- upload div end -->
+
+<div id="main" style="display:none">
+
+
+<div id="upload">
+<h2>step 1. select your srt file</h2>
+<input type="file" id="file" name="file"/>
+</div><!-- upload div end -->
+
+<div id="adjust" style="display:none">
+<h2>step 2. set offset (sec)</h2>
+<p>file: <b><span id="span_filename"></span></b></p>
+<p id="error" style="display:none;color:#ff0000">The offset should be a number.</p>
+<p><label for="offset">Offset(sec):</label><input type="text" id="offset" name="offset"/><span>eg. <i>-2</i>, <i>2</i>,<i>-0.5</i>,<i>0.5</i>,<i>1.123</i>,</span></p>
+<p><button id="btn_do">DO</button></p>
+</div><!-- upload div end -->
+
+<div id="result" style="display:none">
+<h2>step 3. save the result file</h2>
+<p>The result file : <span id="result_span"></span></p>
+</div><!-- upload div end -->
+
+</div><!-- main div end -->
+
+<script type="text/javascript" src="func.js"></script>
+<script type="text/javascript">
+//global
+doc = {};
+
+//prepare
+prepare();
+
+//binding file event
+document.getElementById('file').addEventListener('change', handleFileSelect, false);
+document.getElementById('btn_do').addEventListener('click', handleDo, false);
+
+</script>
+
+</body>
+</html>
